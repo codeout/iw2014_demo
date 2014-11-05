@@ -1,5 +1,9 @@
 <%= form_for @device, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
+    <%= f.label :autnum_id, :class => 'control-label' %>
+    <%= f.collection_select :autnum_id, Autnum.all, :id, :asn, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
     <%= f.label :name, :class => 'control-label' %>
     <%= f.text_area :name, :class => 'form-control' %>
   </div>

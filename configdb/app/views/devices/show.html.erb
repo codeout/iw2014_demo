@@ -4,6 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:asn) %>:</strong></dt>
+  <dd><%= @device.autnum.asn %></dd>
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @device.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:fqdn) %>:</strong></dt>

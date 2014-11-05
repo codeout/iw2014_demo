@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:asn) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:fqdn) %></th>
       <th><%= model_class.human_attribute_name(:platform) %></th>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= link_to device.id, device_path(device) %></td>
         <td><%= device.name %></td>
+        <td><%= device.autnum.asn %></td>
         <td><%= device.fqdn %></td>
         <td><%= device.platform %></td>
         <td><%=l device.created_at %></td>
