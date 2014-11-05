@@ -1,0 +1,2 @@
+module AutnumsHelper
+end

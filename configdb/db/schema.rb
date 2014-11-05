@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105172035) do
+ActiveRecord::Schema.define(version: 20141105180302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "autnums", force: true do |t|
+    t.integer  "asn"
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "devices", force: true do |t|
     t.text     "name"
@@ -54,5 +61,14 @@ ActiveRecord::Schema.define(version: 20141105172035) do
   end
 
   add_index "ipv6s", ["gigabit_ethernet_id"], name: "index_ipv6s_on_gigabit_ethernet_id", using: :btree
+
+  create_table "peers", force: true do |t|
+    t.integer  "autnum_id"
+    t.text     "neighbor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "peers", ["autnum_id"], name: "index_peers_on_autnum_id", using: :btree
 
 end
