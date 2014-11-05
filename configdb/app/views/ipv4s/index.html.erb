@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:gigabit_ethernet_id) %></th>
+      <th><%= model_class.human_attribute_name(:gigabit_ethernet) %></th>
       <th><%= model_class.human_attribute_name(:address) %></th>
       <th><%= model_class.human_attribute_name(:primary) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -17,7 +17,7 @@
     <% @ipv4s.each do |ipv4| %>
       <tr>
         <td><%= link_to ipv4.id, ipv4_path(ipv4) %></td>
-        <td><%= ipv4.gigabit_ethernet_id %></td>
+        <td><%= ipv4.gigabit_ethernet.name_with_device %></td>
         <td><%= ipv4.address %></td>
         <td><%= ipv4.primary %></td>
         <td><%=l ipv4.created_at %></td>

@@ -1,7 +1,7 @@
 <%= form_for @ipv4, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="form-group">
     <%= f.label :gigabit_ethernet_id, :class => 'control-label' %>
-    <%= f.number_field :gigabit_ethernet_id, :class => 'form-control' %>
+    <%= f.collection_select :gigabit_ethernet_id, GigabitEthernet.all, :id, :name_with_device, :class => 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :address, :class => 'control-label' %>
