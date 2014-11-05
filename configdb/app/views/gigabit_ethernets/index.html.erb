@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:device_id) %></th>
+      <th><%= model_class.human_attribute_name(:device) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:speed) %></th>
@@ -18,7 +18,7 @@
     <% @gigabit_ethernets.each do |gigabit_ethernet| %>
       <tr>
         <td><%= link_to gigabit_ethernet.id, gigabit_ethernet_path(gigabit_ethernet) %></td>
-        <td><%= gigabit_ethernet.device_id %></td>
+        <td><%= gigabit_ethernet.device.name %></td>
         <td><%= gigabit_ethernet.name %></td>
         <td><%= gigabit_ethernet.description %></td>
         <td><%= gigabit_ethernet.speed %></td>
