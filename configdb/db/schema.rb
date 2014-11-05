@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105164622) do
+ActiveRecord::Schema.define(version: 20141105172035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,5 +34,25 @@ ActiveRecord::Schema.define(version: 20141105164622) do
   end
 
   add_index "gigabit_ethernets", ["device_id"], name: "index_gigabit_ethernets_on_device_id", using: :btree
+
+  create_table "ipv4s", force: true do |t|
+    t.integer  "gigabit_ethernet_id"
+    t.text     "address"
+    t.boolean  "primary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ipv4s", ["gigabit_ethernet_id"], name: "index_ipv4s_on_gigabit_ethernet_id", using: :btree
+
+  create_table "ipv6s", force: true do |t|
+    t.integer  "gigabit_ethernet_id"
+    t.text     "address"
+    t.boolean  "primary"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ipv6s", ["gigabit_ethernet_id"], name: "index_ipv6s_on_gigabit_ethernet_id", using: :btree
 
 end

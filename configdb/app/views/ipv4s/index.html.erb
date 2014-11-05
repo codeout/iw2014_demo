@@ -1,0 +1,29 @@
+<h1>Listing ipv4s</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Gigabit ethernet</th>
+      <th>Address</th>
+      <th>Primary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ipv4s.each do |ipv4| %>
+      <tr>
+        <td><%= ipv4.gigabit_ethernet %></td>
+        <td><%= ipv4.address %></td>
+        <td><%= ipv4.primary %></td>
+        <td><%= link_to 'Show', ipv4 %></td>
+        <td><%= link_to 'Edit', edit_ipv4_path(ipv4) %></td>
+        <td><%= link_to 'Destroy', ipv4, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ipv4', new_ipv4_path %>

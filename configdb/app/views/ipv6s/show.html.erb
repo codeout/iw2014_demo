@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gigabit ethernet:</strong>
+  <%= @ipv6.gigabit_ethernet %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @ipv6.address %>
+</p>
+
+<p>
+  <strong>Primary:</strong>
+  <%= @ipv6.primary %>
+</p>
+
+<%= link_to 'Edit', edit_ipv6_path(@ipv6) %> |
+<%= link_to 'Back', ipv6s_path %>

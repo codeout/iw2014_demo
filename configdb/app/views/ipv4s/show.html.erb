@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gigabit ethernet:</strong>
+  <%= @ipv4.gigabit_ethernet %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @ipv4.address %>
+</p>
+
+<p>
+  <strong>Primary:</strong>
+  <%= @ipv4.primary %>
+</p>
+
+<%= link_to 'Edit', edit_ipv4_path(@ipv4) %> |
+<%= link_to 'Back', ipv4s_path %>

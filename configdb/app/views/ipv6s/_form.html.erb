@@ -1,0 +1,29 @@
+<%= form_for(@ipv6) do |f| %>
+  <% if @ipv6.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ipv6.errors.count, "error") %> prohibited this ipv6 from being saved:</h2>
+
+      <ul>
+      <% @ipv6.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :gigabit_ethernet_id %><br>
+    <%= f.text_field :gigabit_ethernet_id %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :primary %><br>
+    <%= f.check_box :primary %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

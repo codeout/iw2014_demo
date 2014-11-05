@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :ipv6s
+
+  resources :ipv4s
+
   resources :gigabit_ethernets
 
   resources :devices
