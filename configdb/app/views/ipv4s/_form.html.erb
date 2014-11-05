@@ -1,29 +1,20 @@
-<%= form_for(@ipv4) do |f| %>
-  <% if @ipv4.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ipv4.errors.count, "error") %> prohibited this ipv4 from being saved:</h2>
+<%= form_for @ipv4, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :gigabit_ethernet_id, :class => 'control-label' %>
+    <%= f.number_field :gigabit_ethernet_id, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, :class => 'control-label' %>
+    <%= f.text_area :address, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :primary, :class => 'control-label' %>
+    <%= f.check_box :primary, :class => 'form-control' %>
+  </div>
 
-      <ul>
-      <% @ipv4.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :gigabit_ethernet_id %><br>
-    <%= f.text_field :gigabit_ethernet_id %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :primary %><br>
-    <%= f.check_box :primary %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                ipv4s_path, :class => 'btn' %>
   </div>
 <% end %>

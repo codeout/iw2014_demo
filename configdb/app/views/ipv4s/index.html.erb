@@ -1,29 +1,40 @@
-<h1>Listing ipv4s</h1>
-
-<table>
+<%- model_class = Ipv4 -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Gigabit ethernet</th>
-      <th>Address</th>
-      <th>Primary</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:gigabit_ethernet_id) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:primary) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @ipv4s.each do |ipv4| %>
       <tr>
-        <td><%= ipv4.gigabit_ethernet %></td>
+        <td><%= link_to ipv4.id, ipv4_path(ipv4) %></td>
+        <td><%= ipv4.gigabit_ethernet_id %></td>
         <td><%= ipv4.address %></td>
         <td><%= ipv4.primary %></td>
-        <td><%= link_to 'Show', ipv4 %></td>
-        <td><%= link_to 'Edit', edit_ipv4_path(ipv4) %></td>
-        <td><%= link_to 'Destroy', ipv4, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l ipv4.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_ipv4_path(ipv4), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      ipv4_path(ipv4),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Ipv4', new_ipv4_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_ipv4_path,
+            :class => 'btn btn-primary' %>
