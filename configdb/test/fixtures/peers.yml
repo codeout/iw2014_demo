@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_id: 
+  autnum_id: 
+  neighbor: MyText
+
+two:
+  device_id: 
+  autnum_id: 
+  neighbor: MyText

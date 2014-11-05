@@ -1,0 +1,40 @@
+<%- model_class = Peer -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:device) %></th>
+      <th><%= model_class.human_attribute_name(:asn) %></th>
+      <th><%= model_class.human_attribute_name(:neighbor) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @peers.each do |peer| %>
+      <tr>
+        <td><%= link_to peer.id, peer_path(peer) %></td>
+        <td><%= peer.device.name %></td>
+        <td><%= peer.autnum.asn %></td>
+        <td><%= peer.neighbor %></td>
+        <td><%=l peer.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_peer_path(peer), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      peer_path(peer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_peer_path,
+            :class => 'btn btn-primary' %>

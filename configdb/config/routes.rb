@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :peers
+
   resources :autnums
 
   resources :ipv6s
