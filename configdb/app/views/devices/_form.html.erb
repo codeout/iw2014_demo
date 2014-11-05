@@ -1,29 +1,20 @@
-<%= form_for(@device) do |f| %>
-  <% if @device.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@device.errors.count, "error") %> prohibited this device from being saved:</h2>
+<%= form_for @device, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <%= f.text_area :name, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fqdn, :class => 'control-label' %>
+    <%= f.text_area :fqdn, :class => 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :platform, :class => 'control-label' %>
+    <%= f.text_area :platform, :class => 'form-control' %>
+  </div>
 
-      <ul>
-      <% @device.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_area :name %>
-  </div>
-  <div class="field">
-    <%= f.label :fqdn %><br>
-    <%= f.text_area :fqdn %>
-  </div>
-  <div class="field">
-    <%= f.label :platform %><br>
-    <%= f.text_area :platform %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                devices_path, :class => 'btn' %>
   </div>
 <% end %>
