@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_id: 
+  name: MyText
+  description: MyText
+  speed: MyText
+
+two:
+  device_id: 
+  name: MyText
+  description: MyText
+  speed: MyText

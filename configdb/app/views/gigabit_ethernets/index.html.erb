@@ -1,0 +1,31 @@
+<h1>Listing gigabit_ethernets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Device</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Speed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gigabit_ethernets.each do |gigabit_ethernet| %>
+      <tr>
+        <td><%= gigabit_ethernet.device %></td>
+        <td><%= gigabit_ethernet.name %></td>
+        <td><%= gigabit_ethernet.description %></td>
+        <td><%= gigabit_ethernet.speed %></td>
+        <td><%= link_to 'Show', gigabit_ethernet %></td>
+        <td><%= link_to 'Edit', edit_gigabit_ethernet_path(gigabit_ethernet) %></td>
+        <td><%= link_to 'Destroy', gigabit_ethernet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gigabit ethernet', new_gigabit_ethernet_path %>
