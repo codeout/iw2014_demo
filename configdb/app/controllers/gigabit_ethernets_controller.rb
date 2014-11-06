@@ -4,7 +4,7 @@ class GigabitEthernetsController < ApplicationController
   # GET /gigabit_ethernets
   # GET /gigabit_ethernets.json
   def index
-    @gigabit_ethernets = GigabitEthernet.all
+    @gigabit_ethernets = GigabitEthernetCondition.new(search_params).gigabit_ethernets
   end
 
   # GET /gigabit_ethernets/1
@@ -70,5 +70,9 @@ class GigabitEthernetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def gigabit_ethernet_params
       params.require(:gigabit_ethernet).permit(:device_id, :name, :description, :speed)
+    end
+
+    def search_params
+      params.permit(:device_id, :name)
     end
 end

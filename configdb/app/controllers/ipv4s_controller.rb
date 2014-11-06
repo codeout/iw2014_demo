@@ -4,7 +4,7 @@ class Ipv4sController < ApplicationController
   # GET /ipv4s
   # GET /ipv4s.json
   def index
-    @ipv4s = Ipv4.all
+    @ipv4s = Ipv4Condition.new(search_params).ipv4s
   end
 
   # GET /ipv4s/1
@@ -70,5 +70,9 @@ class Ipv4sController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ipv4_params
       params.require(:ipv4).permit(:gigabit_ethernet_id, :address, :primary)
+    end
+
+    def search_params
+      params.permit(:gigabit_ethernet_id)
     end
 end

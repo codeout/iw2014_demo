@@ -4,7 +4,7 @@ class DevicesController < ApplicationController
   # GET /devices
   # GET /devices.json
   def index
-    @devices = Device.all
+    @devices = DeviceCondition.new(search_params).devices
   end
 
   # GET /devices/1
@@ -70,5 +70,9 @@ class DevicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def device_params
       params.require(:device).permit(:autnum_id, :name, :fqdn, :platform)
+    end
+
+    def search_params
+      params.permit(:name)
     end
 end
