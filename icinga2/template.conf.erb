@@ -1,0 +1,12 @@
+object Host "<%= device.name %>" {
+  import "generic-host"
+
+  address = "<%= ipv4.address %>"
+}
+
+object Service "ping" {
+  import "generic-service"
+
+  host_name = "<%= device.name %>"
+  check_command = "ping4"
+}
