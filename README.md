@@ -12,7 +12,7 @@ iw2014_demo
 
 * rest_client.py
   * python から、ネットワーク管理データベースに接続するサンプル
-  
+
 * add_item.py
   * python から、zabbix に監視項目を追加するためのサンプル
   * パラメーターはネットワーク管理データベースから取得する
@@ -50,3 +50,8 @@ GitHubのWeb UI上でタグを切り替えたり、```git checkout``` するこ�
 |v3.0 |Icinga に監視項目を追加するサンプル|
 |v4.0 |Icinga にメッセージキューを持たせる|
 |v5.0 |デバイスを操作するAPI を追加       |
+
+License
+-------
+
+Copyright (c) 2014 Shintaro Kojima. Code released under the MIT license.
